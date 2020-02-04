@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dialog_padding_large">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:orientation="horizontal"
+        android:gravity="top"
+        android:layout_marginBottom="@dimen/dialog_padding_small"
+        >
+
+        <TextView
+            android:id="@+id/name_hint"
+            android:layout_width="280px"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textSize="@dimen/dialog_text"
+            />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dialog_text"
+            tools:text="牛奶" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:orientation="horizontal"
+        android:gravity="top"
+        android:layout_marginBottom="@dimen/dialog_padding_small">
+
+        <TextView
+            android:id="@+id/num_hint"
+            android:layout_width="280px"
+            android:layout_height="wrap_content"
+            android:text="@string/num"
+            android:textSize="@dimen/dialog_text" />
+
+        <TextView
+            android:id="@+id/num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dialog_padding_small"
+            android:textSize="@dimen/dialog_text"
+            tools:text="2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/dialog_padding_small">
+
+        <TextView
+            android:id="@+id/kind_hint"
+            android:layout_width="280px"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|left"
+            android:text="@string/kind"
+            android:textSize="@dimen/dialog_text"
+            />
+
+        <com.t.familymanagers.Tools.PickerView
+            android:id="@+id/kind_picker"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/dialog_padding_small"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/kind_hint" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/dialog_padding_small">
+
+        <TextView
+            android:id="@+id/productDate_hint"
+            android:layout_width="280px"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/productDate"
+            android:textSize="@dimen/dialog_text" />
+
+        <DatePicker
+            android:id="@+id/productDate_picker"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
+          />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/dialog_padding_small">
+
+        <TextView
+            android:id="@+id/shelfLive_hint"
+            android:layout_width="280px"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/shelfLive"
+            android:textSize="@dimen/dialog_text"
+         />
+
+
+        <LinearLayout
+            android:id="@+id/shelfLive"
+            android:layout_width="300px"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+           >
+
+            <com.t.familymanagers.Tools.PickerView
+                android:id="@+id/shelfLive_num_piker"
+                android:layout_width="150px"
+                android:layout_height="match_parent" />
+            <com.t.familymanagers.Tools.PickerView
+                android:id="@+id/shelfLive_YorM_piker"
+                android:layout_width="150px"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

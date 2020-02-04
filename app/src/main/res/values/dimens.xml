@@ -5,4 +5,7 @@
     <dimen name="appbar_padding">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="dialog_text">60px</dimen>
+    <dimen name="dialog_padding_small">50px</dimen>
+    <dimen name="dialog_padding_large">100px</dimen>
 </resources>
