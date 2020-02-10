@@ -21,7 +21,9 @@ class Food {
     constructor(
         name: String,
         number: Int,
-        productionDate: String,
+        productionDateY: String,
+        productionDateM: String,
+        productionDateD: String,
         shelfLive: String,
         ifOpen: String,
         openDate: String,
@@ -32,7 +34,9 @@ class Food {
         this.number = number
         this.kind = kind
         this.shelfLive = shelfLive
-        this.productionDate = productionDate
+        this.productionDateY = productionDateY
+        this.productionDateM = productionDateM
+        this.productionDateD = productionDateD
         this.openDate = openDate
         this.ifOpen = ifOpen
         this.ifNeedAdd = ifNeedAdd
@@ -40,13 +44,15 @@ class Food {
 
     var name = ""
     var number = 0
-    var productionDate = ""
+    var productionDateY = ""
+    var productionDateM = ""
+    var productionDateD= ""
     var shelfLive = ""
     var ifOpen = ""
     var openDate = ""
     var ifNeedAdd = ""
     var kind = ""
     override fun toString(): String {
-        return "name=$name,number=$number,kind=$kind,shelfLive=$shelfLive,openDate=$openDate,ifOpen=$ifOpen,ifNeedAdd=$ifNeedAdd"
+        return "name=$name,number=$number,kind=$kind,shelfLive=$shelfLive,openDate=$openDate,ifOpen=$ifOpen,ifNeedAdd=$ifNeedAdd ,productionDate=$productionDateY $productionDateM $productionDateD "
     }
 }

@@ -11,7 +11,9 @@ import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_KIND
 import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_NAME
 import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_NUMBER
 import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_OPEN_DATE
-import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_PRODUCTION_DATE
+import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_PRODUCTION_DATE_D
+import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_PRODUCTION_DATE_M
+import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_PRODUCTION_DATE_Y
 import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_SHELF_LIVE
 import com.t.familymanagers.data.DataBaseHelper.Companion.TABLE_NAME
 import java.util.ArrayList
@@ -25,7 +27,9 @@ class DataBaseTools(val context: Context, val database: SQLiteDatabase) {
         contentValues.put(COLUMN_IF_OPEN, food.ifOpen)
         contentValues.put(COLUMN_NUMBER, food.number)
         contentValues.put(COLUMN_OPEN_DATE, food.openDate)
-        contentValues.put(COLUMN_PRODUCTION_DATE, food.productionDate)
+        contentValues.put(COLUMN_PRODUCTION_DATE_Y, food.productionDateY)
+        contentValues.put(COLUMN_PRODUCTION_DATE_M, food.productionDateM)
+        contentValues.put(COLUMN_PRODUCTION_DATE_D, food.productionDateD)
         contentValues.put(COLUMN_SHELF_LIVE, food.shelfLive)
         contentValues.put(COLUMN_KIND, food.kind)
 
@@ -63,7 +67,9 @@ class DataBaseTools(val context: Context, val database: SQLiteDatabase) {
                 COLUMN_IF_OPEN,
                 COLUMN_NUMBER,
                 COLUMN_OPEN_DATE,
-                COLUMN_PRODUCTION_DATE,
+                COLUMN_PRODUCTION_DATE_Y,
+                COLUMN_PRODUCTION_DATE_M,
+                COLUMN_PRODUCTION_DATE_D,
                 COLUMN_SHELF_LIVE,
                 COLUMN_KIND
             ),
@@ -81,10 +87,12 @@ class DataBaseTools(val context: Context, val database: SQLiteDatabase) {
             val ifOpen = cursor.getString(3)
             val number = cursor.getInt(4)
             val openDate = cursor.getString(5)
-            val productionDate = cursor.getString(6)
-            val shelfLive = cursor.getString(7)
-            val kind = cursor.getString(8)
-            food= Food(name,number,productionDate,shelfLive,ifOpen,openDate,ifNeedAdd,kind)
+            val productionDateY = cursor.getString(6)
+            val productionDateM = cursor.getString(7)
+            val productionDateD = cursor.getString(8)
+            val shelfLive = cursor.getString(9)
+            val kind = cursor.getString(10)
+            food= Food(name,number,productionDateY,productionDateM,productionDateD,shelfLive,ifOpen,openDate,ifNeedAdd,kind)
             Log.d("DataBaseTools", "name:${cursor.getString(1)}")
             foodList.add(food)
         }
@@ -105,7 +113,9 @@ class DataBaseTools(val context: Context, val database: SQLiteDatabase) {
                 COLUMN_IF_OPEN,
                 COLUMN_NUMBER,
                 COLUMN_OPEN_DATE,
-                COLUMN_PRODUCTION_DATE,
+                COLUMN_PRODUCTION_DATE_Y,
+                COLUMN_PRODUCTION_DATE_M,
+                COLUMN_PRODUCTION_DATE_D,
                 COLUMN_SHELF_LIVE,
                 COLUMN_KIND
             ),
@@ -123,10 +133,12 @@ class DataBaseTools(val context: Context, val database: SQLiteDatabase) {
             val ifOpen = cursor.getString(3)
             val number = cursor.getInt(4)
             val openDate = cursor.getString(5)
-            val productionDate = cursor.getString(6)
-            val shelfLive = cursor.getString(7)
-            val kind = cursor.getString(8)
-            food=Food(name,number,productionDate,shelfLive,ifOpen,openDate,ifNeedAdd,kind)
+            val productionDateY = cursor.getString(6)
+            val productionDateM = cursor.getString(7)
+            val productionDateD = cursor.getString(8)
+            val shelfLive = cursor.getString(9)
+            val kind = cursor.getString(10)
+            food=Food(name,number,productionDateY,productionDateM,productionDateD,shelfLive,ifOpen,openDate,ifNeedAdd,kind)
             foodList.add(food)
             Log.d("getFoodByKind","$food $id ${cursor.columnCount} ${cursor.count}")
         }

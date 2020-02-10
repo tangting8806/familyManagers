@@ -1,12 +1,13 @@
 package com.t.familymanagers
 
 import android.app.Dialog
-import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -15,20 +16,15 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.t.familymanagers.data.DataBaseHelper
-import com.t.familymanagers.data.DataBaseHelper.Companion.COLUMN_ID
 import com.t.familymanagers.data.DataBaseHelper.Companion.TABLE_NAME
 import com.t.familymanagers.data.DataBaseTools
-import com.t.familymanagers.data.Food
 import com.t.familymanagers.data.Food.Companion.FOOD_KIND_LINGSHI
-import com.t.familymanagers.data.Food.Companion.IF_NEED_ADD_FALSE
-import com.t.familymanagers.data.Food.Companion.IF_OPEN_FALSE
+import com.t.familymanagers.ui.main.AddDialogFragment
 import com.t.familymanagers.ui.main.SectionsPagerAdapter
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     var database: SQLiteDatabase? = null
-    var searchDialogFragment:DialogFragment?=null
-    var addDialogFragment:DialogFragment?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,26 +39,28 @@ class MainActivity : AppCompatActivity() {
         Log.d("onCreate", "${HaveData(database!!, TABLE_NAME)}")
 
         val fabAdd: FloatingActionButton = findViewById(R.id.fab_add)
-
-//        val food = Food(
-//            "牛奶",
-//            1,
-//            "20191010",
-//            "6",
-//            IF_OPEN_FALSE,
-//            "0",
-//            IF_NEED_ADD_FALSE,
-//            getKindString(FOOD_KIND_LINGSHI)
-//        )
         fabAdd.setOnClickListener { view ->
-            if(database!=null){
+            if (database != null) {
                 Log.d("onCreate", "setOnClickListener ${HaveData(database!!, TABLE_NAME)}")
             }
 //             DataBaseTools.getInstance(this@MainActivity, database!!).insert(food)
-//
-//           //  DataBaseTools.getInstance(this@MainActivity, database!!).deleteById(1)
-//            DataBaseTools.getInstance(this@MainActivity, database!!).getFoodByKind(getKindString(FOOD_KIND_LINGSHI))
-//
+//             DataBaseTools.getInstance(this@MainActivity, database!!).deleteById(1)
+//             DataBaseTools.getInstance(this@MainActivity, database!!).getFoodByKind(getKindString(FOOD_KIND_LINGSHI))
+
+            val addDialogFragment: AddDialogFragment? = AddDialogFragment.newInstance()
+            addDialogFragment!!.show(supportFragmentManager, "edit")
+        }
+
+        val testfab: FloatingActionButton = findViewById(R.id.fab_test)
+        testfab.setOnClickListener { view ->
+            if (database != null) {
+                Log.d("onCreate", "setOnClickListener ${HaveData(database!!, TABLE_NAME)}")
+            }
+             val list=DataBaseTools.getInstance(this@MainActivity, database!!).getFoodByKind(getKindString(FOOD_KIND_LINGSHI))
+        for(l in list!!){
+            Log.d("MainActivity","$l")
+        }
+
         }
     }
 
@@ -116,4 +114,11 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
 }
+
+
+
+
+
+

@@ -12,7 +12,7 @@
         android:layout_height="150px"
         android:orientation="horizontal"
         android:gravity="top"
-        android:layout_marginBottom="@dimen/dialog_padding_small"
+        android:layout_marginBottom="@dimen/dialog_padding_vertical"
         >
 
         <TextView
@@ -23,42 +23,56 @@
             android:textSize="@dimen/dialog_text"
             />
 
-        <TextView
+        <EditText
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/dialog_text"
+            android:layout_marginLeft="@dimen/dialog_padding_small"
+            android:inputType="text"
             tools:text="牛奶" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary">
+    </TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150px"
         android:orientation="horizontal"
         android:gravity="top"
-        android:layout_marginBottom="@dimen/dialog_padding_small">
+        android:layout_marginBottom="@dimen/dialog_padding_vertical">
 
         <TextView
             android:id="@+id/num_hint"
             android:layout_width="280px"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:text="@string/num"
             android:textSize="@dimen/dialog_text" />
 
-        <TextView
+        <EditText
             android:id="@+id/num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/dialog_padding_small"
             android:textSize="@dimen/dialog_text"
+            android:layout_marginLeft="@dimen/dialog_padding_small"
             tools:text="2" />
     </LinearLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary">
+    </TextView>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400px"
+        android:layout_height="300px"
         android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/dialog_padding_small">
+        android:layout_marginBottom="@dimen/dialog_padding_vertical">
 
         <TextView
             android:id="@+id/kind_hint"
@@ -71,20 +85,24 @@
 
         <com.t.familymanagers.Tools.PickerView
             android:id="@+id/kind_picker"
-            android:layout_width="0px"
-            android:layout_weight="1"
+            android:layout_width="300px"
             android:layout_height="match_parent"
             android:paddingBottom="@dimen/dialog_padding_small"
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintRight_toLeftOf="parent"
+            android:layout_marginLeft="@dimen/dialog_padding_small"
             app:layout_constraintTop_toBottomOf="@id/kind_hint" />
     </LinearLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary">
+    </TextView>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400px"
+        android:layout_height="300px"
         android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/dialog_padding_small">
+        android:layout_marginBottom="@dimen/dialog_padding_vertical">
 
         <TextView
             android:id="@+id/productDate_hint"
@@ -94,21 +112,39 @@
             android:text="@string/productDate"
             android:textSize="@dimen/dialog_text" />
 
-        <DatePicker
-            android:id="@+id/productDate_picker"
-            android:layout_width="0px"
-            android:layout_weight="1"
+        <LinearLayout
+            android:id="@+id/productDate"
+            android:layout_width="600px"
             android:layout_height="match_parent"
-            android:calendarViewShown="false"
-            android:datePickerMode="spinner"
-          />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/dialog_padding_small"
+            >
 
+            <com.t.familymanagers.Tools.PickerView
+                android:id="@+id/productDateY_piker"
+                android:layout_width="180px"
+                android:layout_height="match_parent" />
+            <com.t.familymanagers.Tools.PickerView
+                android:id="@+id/productDateM_piker"
+                android:layout_width="100px"
+                android:layout_height="match_parent" />
+            <com.t.familymanagers.Tools.PickerView
+                android:id="@+id/productDateD_piker"
+                android:layout_width="100px"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary">
+    </TextView>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400px"
+        android:layout_height="300px"
         android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/dialog_padding_small">
+        android:layout_marginBottom="@dimen/dialog_padding_vertical">
 
         <TextView
             android:id="@+id/shelfLive_hint"
@@ -125,6 +161,7 @@
             android:layout_width="300px"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/dialog_padding_small"
            >
 
             <com.t.familymanagers.Tools.PickerView
@@ -139,4 +176,40 @@
 
 
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary">
+    </TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:orientation="horizontal"
+        android:gravity="top"
+        android:layout_marginTop="@dimen/dialog_padding_small"
+        >
+
+        <Button
+            android:id="@+id/yes_Button"
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="填好啦"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:textSize="@dimen/dialog_text"
+            android:layout_alignParentLeft="true"
+            />
+
+        <Button
+            android:id="@+id/next_Button"
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:textSize="45px"
+            android:background="@color/colorPrimary"
+            android:text="填好啦\n再加一个"
+            android:textColor="@color/white"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
 </LinearLayout>
